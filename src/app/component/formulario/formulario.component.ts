@@ -22,13 +22,11 @@ export class FormularioComponent {
 
   constructor(private empleadosService: EmpleadosService, private eventosService: EventosService, private fb: FormBuilder) {
     this.form = this.fb.group({
-      id: ['', [Validators.required]],
       empleado: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       categoria: ['', [Validators.required]],
       fecha: ['', [Validators.required]],
-      hora: ['', [Validators.required]],
       creacion: [new Date()]
     });
   }
@@ -56,13 +54,12 @@ export class FormularioComponent {
       const now = new Date();
 
       const nuevoRegistro: Evento = {
-        id: this.form.value.id,
-        empleadoId: this.form.value.empleadoId,
+        id: this.eventos.length + 1,
+        empleadoId: this.form.value.empleado,
         nombre: this.form.value.nombre,
         descripcion: this.form.value.descripcion,
         categoria: this.form.value.categoria,
         fecha: this.form.value.fecha,
-        hora: this.form.value.hora,
         creacion: now
       };
 
@@ -70,6 +67,8 @@ export class FormularioComponent {
         this.eventos.push(nuevoRegistro);
         this.form.reset();
       });
+    } else {
+      alert('Por favor, rellene todos los campos');
     }
   }
 }

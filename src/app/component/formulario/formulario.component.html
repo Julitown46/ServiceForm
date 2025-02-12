@@ -2,9 +2,9 @@
     <h2 class="mb-4 text-center">Registro de Eventos</h2>
     <div class="mb-3 w-50 mx-auto">
         <label for="empleado" class="form-label">Empleado:</label>
-        <select id="empleado" formControlName="empleado" class="form-select">
+        <select id="empleado" name="empleado" formControlName="empleado" class="form-select">
           <option value="">Seleccione un empleado</option>
-          @for (empleado of empleados; track empleado.nombre) {
+          @for (empleado of empleados; track empleado.id) {
           <option value="{{empleado.id}}">{{empleado.nombre}}</option>
           }
         </select>
@@ -41,13 +41,8 @@
           </div>
           <div class="mb-3">
             <label for="fecha" class="form-label">Fecha:</label>
-            <input type="text" id="fecha" class="form-control" formControlName="fecha" placeholder="Datepicker">
+            <input type="date" id="fecha" class="form-control" formControlName="fecha" placeholder="Datepicker" >
           </div>
-            <div class="mb-3">
-                <label for="hora" class="form-label">Hora:</label>
-                <input type="text" id="hora" class="form-control" formControlName="hora" placeholder="Timepicker">
-            </div>
-            <input type="date" id="creacion" class="form-control" formControlName="creacion" hidden>
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Registrar Evento</button>

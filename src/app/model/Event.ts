@@ -6,7 +6,6 @@ export interface Evento {
     id: number;
     nombre: string;
     fecha: string;
-    hora: string;
     descripcion: string;
     categoria: 'log' | 'warn' | 'error';
     creacion: Date;
