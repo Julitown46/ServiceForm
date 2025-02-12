@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EmpleadosService } from '../../service/empleados.service';
+import { Empleado } from '../../model/Persona';
 import { EventosService } from '../../service/eventos.service';
 import { Evento } from '../../model/Event';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -8,47 +11,34 @@ import { Evento } from '../../model/Event';
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
-export class FormularioComponent implements OnInit {
-
+export class FormularioComponent {
+  empleados: Empleado[] = [];
   eventos: Evento[] = [];
 
-  constructor(private eventosService: EventosService) {}
+  constructor(private empleadosService: EmpleadosService, private eventosService: EventosService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.empleadosService.getEmpleados().subscribe((empleados) => {
+      this.empleados = empleados;
+    });
+    console.log(this.empleados);
     this.eventosService.getEventos().subscribe((eventos) => {
       this.eventos = eventos;
     });
     console.log(this.eventos);
   }
 
-  addEvento(evento: Evento) {
-    this.eventosService.addEvento(evento).subscribe(() => {
-      console.log('Evento añadido');
-      console.log(evento);
-      this.eventos.push(evento);
-    });
+  addEvento(form: FormGroup) {
+    if(form.valid){
+      this.eventosService.addEvento(form.value).subscribe(() => {
+        this.eventos.push(form.value);
+      });
+    }
   }
 
   deleteEvento(id: number) {
     this.eventosService.deleteEvento(id).subscribe(() => {
-      this.eventos = this.eventos.filter((evento) => evento.idEvento !== id);
-    });
-  }
-
-  updateEvento(evento: Evento) {
-    this.eventosService.updateEvento(evento).subscribe(() => {
-      this.eventos = this.eventos.map((e) => {
-        if (e.idEvento === evento.idEvento) {
-          return evento;
-        }
-        return e;
-      });
-    });
-  }
-
-  getEvento(id: number) {
-    this.eventosService.getEvento(id).subscribe((evento) => {
-      console.log(evento);
+      this.eventos = this.eventos.filter((evento) => evento.id !== id);
     });
   }
 }

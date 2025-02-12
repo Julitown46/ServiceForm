@@ -3,9 +3,9 @@ import { Empleado } from "./Persona";
 export interface Evento {
     empleadoId: number;
     
-    idEvento: number;
-    nombreEvento: string;
-    fechaEvento: Date;
+    id: number;
+    nombre: string;
+    fecha: Date;
     descripcion: string;
     categoria: 'log' | 'warn' | 'error';
 }

@@ -25,7 +25,7 @@ export class EventosService {
   }
 
   updateEvento(evento: Evento) {
-    return this.http.put(`${this.url}/${evento.idEvento}`, evento);
+    return this.http.put(`${this.url}/${evento.id}`, evento);
   }
 
   deleteEvento(id: number) {

@@ -1,1 +1,8 @@
-<p>lista works!</p>
+<h2>Lista de Eventos</h2>
+<ul>
+  @for (evento of eventos; track evento.id) {
+    <li>
+      {{ evento.id }} - {{ evento.nombre }} - {{ evento.descripcion }} - {{ evento.categoria}} - {{evento.fecha}}
+    </li>
+  }
+</ul>
