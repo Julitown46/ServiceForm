@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventosService } from '../../service/eventos.service';
 import { Evento } from '../../model/Event';
+import { EmpleadosService } from '../../service/empleados.service';
 
 @Component({
   selector: 'app-lista',
@@ -11,7 +12,7 @@ import { Evento } from '../../model/Event';
 export class ListaComponent{
   eventos: Evento[] = [];
 
-  constructor(private eventosService: EventosService) {}
+  constructor(private eventosService: EventosService, private empleadoService: EmpleadosService) {}
 
   ngOnInit(): void {
     this.eventosService.getEventos().subscribe((eventos) => {

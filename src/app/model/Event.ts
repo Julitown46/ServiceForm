@@ -1,7 +1,7 @@
 import { Empleado } from "./Persona";
 
 export interface Evento {
-    empleadoId: number;
+    empleadoNombre: string;
     
     id: number;
     nombre: string;

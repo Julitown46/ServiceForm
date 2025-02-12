@@ -1,40 +1,22 @@
 {
   "eventos": [
     {
-      "id": "1",
-      "nombre": "Sumerfest",
-      "fecha": "2021-07-01",
-      "empleado": 1,
-      "descripcion": "Festival de verano",
+      "id": 1,
+      "empleadoNombre": "Juan",
+      "nombre": "asasasas",
+      "descripcion": "sasasasa",
       "categoria": "log",
-      "creacion": "2025-02-10T14:30:00Z"
+      "fecha": "2025-02-06",
+      "creacion": "2025-02-12T14:56:37.496Z"
     },
     {
-      "id": "2",
-      "nombre": "Tech Expo",
-      "fecha": "2022-05-15",
-      "empleado": 2,
-      "descripcion": "Exposición de tecnología",
+      "id": 2,
+      "empleadoNombre": "Carlos",
+      "nombre": "dadadad",
+      "descripcion": "dadadad",
       "categoria": "warn",
-      "creacion": "2025-02-10T14:30:00Z"
-    },
-    {
-      "id": "3",
-      "nombre": "Fiesta de Navidad",
-      "fecha": "2023-12-20",
-      "empleado": 3,
-      "descripcion": "Celebración navideña para empleados",
-      "categoria": "error",
-      "creacion": "2025-02-10T14:30:00Z"
-    },
-    {
-      "id": 4,
-      "empleadoId": "2",
-      "nombre": "Hola",
-      "descripcion": "me duele el tuqui tuqui",
-      "categoria": "log",
       "fecha": "2025-02-07",
-      "creacion": "2025-02-12T13:33:32.742Z"
+      "creacion": "2025-02-12T15:04:43.234Z"
     }
   ],
   "empleados": [

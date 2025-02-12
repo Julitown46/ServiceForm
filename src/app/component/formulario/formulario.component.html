@@ -1,11 +1,11 @@
 <form [formGroup]="form" (submit)="submit()">
-    <h2 class="mb-4 text-center">Registro de Eventos</h2>
+    <h2 class="mb-4 text-center">Registro de Eventos - {{ nombre }}</h2>
     <div class="mb-3 w-50 mx-auto">
         <label for="empleado" class="form-label">Empleado:</label>
-        <select id="empleado" name="empleado" formControlName="empleado" class="form-select">
+        <select id="empleado" name="empleado" formControlName="empleado" (change)="cambiarNombre()" class="form-select">
           <option value="">Seleccione un empleado</option>
           @for (empleado of empleados; track empleado.id) {
-          <option value="{{empleado.id}}">{{empleado.nombre}}</option>
+          <option value="{{empleado.nombre}}">{{empleado.nombre}}</option>
           }
         </select>
       </div>
