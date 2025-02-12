@@ -3,19 +3,35 @@ import { EmpleadosService } from '../../service/empleados.service';
 import { Empleado } from '../../model/Persona';
 import { EventosService } from '../../service/eventos.service';
 import { Evento } from '../../model/Event';
-import { FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-formulario',
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule, BsDatepickerModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
 export class FormularioComponent {
   empleados: Empleado[] = [];
   eventos: Evento[] = [];
+  form: FormGroup;
+  registro!: Evento;
+  datosEvento: boolean = false;
 
-  constructor(private empleadosService: EmpleadosService, private eventosService: EventosService) {}
+  constructor(private empleadosService: EmpleadosService, private eventosService: EventosService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      id: ['', [Validators.required]],
+      empleado: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
+      categoria: ['', [Validators.required]],
+      fecha: ['', [Validators.required]],
+      hora: ['', [Validators.required]],
+      creacion: [new Date()]
+    });
+  }
 
   ngOnInit(): void {
     this.empleadosService.getEmpleados().subscribe((empleados) => {
@@ -25,20 +41,35 @@ export class FormularioComponent {
     this.eventosService.getEventos().subscribe((eventos) => {
       this.eventos = eventos;
     });
-    console.log(this.eventos);
   }
 
   addEvento(form: FormGroup) {
-    if(form.valid){
+    if (form.valid) {
       this.eventosService.addEvento(form.value).subscribe(() => {
         this.eventos.push(form.value);
       });
     }
   }
 
-  deleteEvento(id: number) {
-    this.eventosService.deleteEvento(id).subscribe(() => {
-      this.eventos = this.eventos.filter((evento) => evento.id !== id);
-    });
+  submit() {
+    if (this.form.valid) {
+      const now = new Date();
+
+      const nuevoRegistro: Evento = {
+        id: this.form.value.id,
+        empleadoId: this.form.value.empleadoId,
+        nombre: this.form.value.nombre,
+        descripcion: this.form.value.descripcion,
+        categoria: this.form.value.categoria,
+        fecha: this.form.value.fecha,
+        hora: this.form.value.hora,
+        creacion: now
+      };
+
+      this.eventosService.addEvento(nuevoRegistro).subscribe(() => {
+        this.eventos.push(nuevoRegistro);
+        this.form.reset();
+      });
+    }
   }
 }

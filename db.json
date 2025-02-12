@@ -6,7 +6,8 @@
             "fecha": "2021-07-01",
             "empleado": 1,
             "descripcion": "Festival de verano",
-            "categoria": "log"
+            "categoria": "log",
+            "creacion": "2025-02-10T14:30:00Z"
         },
         {
             "id": 2,
@@ -14,7 +15,8 @@
             "fecha": "2022-05-15",
             "empleado": 2,
             "descripcion": "Exposición de tecnología",
-            "categoria": "tech"
+            "categoria": "warn",
+            "creacion": "2025-02-10T14:30:00Z"
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "fecha": "2023-12-20",
             "empleado": 3,
             "descripcion": "Celebración navideña para empleados",
-            "categoria": "social"
+            "categoria": "error",
+            "creacion": "2025-02-10T14:30:00Z"
         }
     ],
     
