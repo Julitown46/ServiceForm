@@ -12,23 +12,23 @@ export class EventosService {
 
   constructor(private http: HttpClient) { }
   
-  getEventos(): Observable<Evento[]> {
+  getEventos() {
     return this.http.get<Evento[]>(this.url);
   }
 
-  getEvento(id: number): Observable<Evento> {
+  getEvento(id: number) {
     return this.http.get<Evento>(`${this.url}/${id}`);
   }
 
-  addEvento(evento: Evento): Observable<any> {
+  addEvento(evento: Evento) {
     return this.http.post(this.url, evento);
   }
 
-  updateEvento(evento: Evento): Observable<any> {
+  updateEvento(evento: Evento) {
     return this.http.put(`${this.url}/${evento.idEvento}`, evento);
   }
 
-  deleteEvento(id: number): Observable<any> {
+  deleteEvento(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
 
