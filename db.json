@@ -10,13 +10,13 @@
       "creacion": "2025-02-13T17:54:15.183Z"
     },
     {
-      "id": "2",
-      "empleadoNombre": "Maria",
-      "nombre": "Warn Event",
-      "descripcion": "warn warn ",
+      "id": 2,
+      "empleadoNombre": "Carlos",
+      "nombre": "daadada",
+      "descripcion": "daaddadad",
       "categoria": "warn",
-      "fecha": "2025-02-06",
-      "creacion": "2025-02-13T17:54:39.489Z"
+      "fecha": "2025-02-08",
+      "creacion": "2025-02-13T18:08:06.502Z"
     },
     {
       "id": "3",
@@ -27,6 +27,7 @@
       "fecha": "2025-02-02",
       "creacion": "2025-02-13T17:54:56.136Z"
     }
+  
   ],
   "empleados": [
     {

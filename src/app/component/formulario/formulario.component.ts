@@ -48,14 +48,6 @@ export class FormularioComponent {
     }
   }
 
-  addEvento(form: FormGroup) {
-    if (form.valid) {
-      this.eventosService.addEvento(form.value).subscribe(() => {
-        this.eventos.push(form.value);
-      });
-    }
-  }
-
   cambiarNombre() {
     this.nombreEmpleado = this.form.value.empleado;
     localStorage.setItem('nombre', this.nombreEmpleado);
