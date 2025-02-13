@@ -1,22 +1,31 @@
 {
   "eventos": [
     {
-      "id": 1,
-      "empleadoNombre": "Juan",
-      "nombre": "asasasas",
-      "descripcion": "sasasasa",
+      "id": "1",
+      "empleadoNombre": "Carlos",
+      "nombre": "Log Event",
+      "descripcion": "log log log",
       "categoria": "log",
-      "fecha": "2025-02-06",
-      "creacion": "2025-02-12T14:56:37.496Z"
+      "fecha": "2025-02-05",
+      "creacion": "2025-02-13T17:54:15.183Z"
     },
     {
-      "id": 2,
-      "empleadoNombre": "Carlos",
-      "nombre": "dadadad",
-      "descripcion": "dadadad",
+      "id": "2",
+      "empleadoNombre": "Maria",
+      "nombre": "Warn Event",
+      "descripcion": "warn warn ",
       "categoria": "warn",
-      "fecha": "2025-02-07",
-      "creacion": "2025-02-12T15:04:43.234Z"
+      "fecha": "2025-02-06",
+      "creacion": "2025-02-13T17:54:39.489Z"
+    },
+    {
+      "id": "3",
+      "empleadoNombre": "Juan",
+      "nombre": "Error Event",
+      "descripcion": "error error",
+      "categoria": "error",
+      "fecha": "2025-02-02",
+      "creacion": "2025-02-13T17:54:56.136Z"
     }
   ],
   "empleados": [

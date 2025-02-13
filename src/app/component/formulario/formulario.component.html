@@ -1,5 +1,5 @@
 <form [formGroup]="form" (submit)="submit()">
-    <h2 class="mb-4 text-center">Registro de Eventos - {{ nombre }}</h2>
+    <h2 class="mb-4 text-center">Registro de Eventos - {{ nombreEmpleado }}</h2>
     <div class="mb-3 w-50 mx-auto">
         <label for="empleado" class="form-label">Empleado:</label>
         <select id="empleado" name="empleado" formControlName="empleado" (change)="cambiarNombre()" class="form-select">

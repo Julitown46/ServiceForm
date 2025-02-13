@@ -26,4 +26,12 @@ export class ListaComponent{
       console.log(evento);
     });
   }
+
+  eliminarDato(id: number) {
+    console.log(id);
+    this.eventosService.deleteEvento(id).subscribe(() => {
+      
+    });
+  }
+
 }

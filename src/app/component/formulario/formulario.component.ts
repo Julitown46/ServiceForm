@@ -18,11 +18,11 @@ export class FormularioComponent {
   empleados: Empleado[] = [];
   eventos: Evento[] = [];
   form: FormGroup;
-  nombre: string = '';
+  nombreEmpleado: string = '';
 
   constructor(private empleadosService: EmpleadosService, private eventosService: EventosService, private fb: FormBuilder, private observablesService: ObservablesService) {
     this.form = this.fb.group({
-      empleado: [[Validators.required]],
+      empleado: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       categoria: ['', [Validators.required]],
@@ -38,6 +38,14 @@ export class FormularioComponent {
     this.eventosService.getEventos().subscribe((eventos) => {
       this.eventos = eventos;
     });
+    
+    if (typeof localStorage !== 'undefined') {
+      const nombreGuardado = localStorage.getItem("nombre");
+      if (nombreGuardado) {
+        this.nombreEmpleado = nombreGuardado;
+        this.form.patchValue({ empleado: nombreGuardado });
+      }
+    }
   }
 
   addEvento(form: FormGroup) {
@@ -48,9 +56,10 @@ export class FormularioComponent {
     }
   }
 
-  cambiarNombre(){
-    this.nombre =this.form.value.empleado;
-    this.observablesService.setNombreTitulo(this.nombre);
+  cambiarNombre() {
+    this.nombreEmpleado = this.form.value.empleado;
+    localStorage.setItem('nombre', this.nombreEmpleado);
+    this.observablesService.setNombreTitulo(this.nombreEmpleado);
   }
 
   submit() {
