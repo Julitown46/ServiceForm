@@ -10,7 +10,7 @@
       "creacion": "2025-02-13T17:54:15.183Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "empleadoNombre": "Carlos",
       "nombre": "daadada",
       "descripcion": "daaddadad",
@@ -27,7 +27,6 @@
       "fecha": "2025-02-02",
       "creacion": "2025-02-13T17:54:56.136Z"
     }
-  
   ],
   "empleados": [
     {

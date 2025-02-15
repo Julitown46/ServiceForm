@@ -1,4 +1,10 @@
 <h2 class="text-center my-4">Lista de Eventos</h2>
+<div class="d-flex justify-content-between">
+  <button (click)="cargarTodos()">Todos</button>
+  <button (click)="cargarLogs()">Logs</button>
+  <button (click)="cargarWarns()">Warns</button>
+  <button (click)="cargarErrors()">Errors</button>
+</div>
 @if (eventos.length != 0) {
   <div class="table-responsive">
     <table class="table table-striped table-bordered text-center">
