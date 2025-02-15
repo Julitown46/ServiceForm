@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { EmpleadosService } from '../service/empleados.service';
-import { Empleado } from '../model/Persona';
+import { EmpleadosService } from '../../service/empleados.service';
+import { Empleado } from '../../model/Persona';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ObservablesService } from '../../service/observables.service';
 
 @Component({
   selector: 'app-form-empleados',
@@ -13,7 +14,7 @@ export class FormEmpleadosComponent {
   empleados: Empleado[] = [];
   form: FormGroup;
 
-  constructor(private empleadosService: EmpleadosService, private fb: FormBuilder) {
+  constructor(private empleadosService: EmpleadosService, private fb: FormBuilder, private observableService: ObservablesService) {
     this.form = this.fb.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
@@ -39,6 +40,7 @@ export class FormEmpleadosComponent {
 
       this.empleadosService.addEmpleado(nuevoEmpleado).subscribe(() => {
         this.empleados.push(nuevoEmpleado);
+        this.observableService.sumarEmpleado();
         this.form.reset();
       });
     }
