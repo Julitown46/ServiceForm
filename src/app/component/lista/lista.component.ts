@@ -23,7 +23,6 @@ export class ListaComponent{
   }
 
   eliminarDato(id: string) {
-    console.log(id);
     this.eventosService.getEvento(id).subscribe(evento => {
       if (evento.categoria === 'log') {
         this.observableService.quitarLog();

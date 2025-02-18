@@ -1,5 +1,3 @@
-import { Empleado } from "./Persona";
-
 export interface Evento {
     empleadoNombre: string;
     
