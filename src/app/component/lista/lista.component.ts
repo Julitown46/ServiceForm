@@ -22,7 +22,7 @@ export class ListaComponent{
     console.log(this.eventos);
   }
 
-  eliminarDato(id: number) {
+  eliminarDato(id: string) {
     console.log(id);
     this.eventosService.getEvento(id).subscribe(evento => {
       if (evento.categoria === 'log') {
