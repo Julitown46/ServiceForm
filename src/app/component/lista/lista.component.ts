@@ -22,15 +22,22 @@ export class ListaComponent{
     console.log(this.eventos);
   }
 
-  getEvento(id: number) {
-    this.eventosService.getEvento(id).subscribe((evento) => {
-      console.log(evento);
-    });
-  }
-
   eliminarDato(id: number) {
     console.log(id);
+    this.eventosService.getEvento(id).subscribe(evento => {
+      if (evento.categoria === 'log') {
+        this.observableService.quitarLog();
+      }
+      if (evento.categoria === 'warn') {
+        this.observableService.quitarWarn();
+      }
+      if (evento.categoria === 'error') {
+        this.observableService.quitarError();
+      }
+    });
+    
     this.eventosService.deleteEvento(id).subscribe(() => {
+      this.cargarTodos();
     });
   }
 

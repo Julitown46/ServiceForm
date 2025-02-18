@@ -10,22 +10,13 @@
       "creacion": "2025-02-13T17:54:15.183Z"
     },
     {
-      "id": "2",
-      "empleadoNombre": "Carlos",
-      "nombre": "daadada",
-      "descripcion": "daaddadad",
-      "categoria": "warn",
-      "fecha": "2025-02-08",
-      "creacion": "2025-02-13T18:08:06.502Z"
-    },
-    {
-      "id": "3",
-      "empleadoNombre": "Juan",
-      "nombre": "Error Event",
-      "descripcion": "error error",
+      "id": "4",
+      "empleadoNombre": "Maria",
+      "nombre": "daaddaad",
+      "descripcion": "adaadda",
       "categoria": "error",
-      "fecha": "2025-02-02",
-      "creacion": "2025-02-13T17:54:56.136Z"
+      "fecha": "2025-02-15",
+      "creacion": "2025-02-18T12:21:41.780Z"
     }
   ],
   "empleados": [
@@ -51,11 +42,18 @@
       "departamento": "recursos humanos"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Cabra",
       "apellido": "dadaad",
       "email": "adadadad@gmaill.com",
       "departamento": "daaddad"
+    },
+    {
+      "id": "5",
+      "nombre": "Paco de la Torre",
+      "apellido": "siono",
+      "email": "wicawic985@prorsd.com",
+      "departamento": "Transeunte"
     }
   ]
 }

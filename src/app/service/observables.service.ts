@@ -66,6 +66,18 @@ export class ObservablesService {
         this.showCounts();
     }
 
+    quitarLog(){
+        this.countLog.next(this.countLog.value -1);
+    }
+
+    quitarWarn(){
+        this.countWarn.next(this.countWarn.value -1);
+    }
+
+    quitarError(){
+        this.countError.next(this.countError.value -1);
+    }
+
     showCounts() {
         console.log(this.countLog.value, this.countWarn.value, this.countError.value);
     }
