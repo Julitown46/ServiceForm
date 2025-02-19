@@ -19,6 +19,10 @@ export class FormularioComponent {
   eventos: Evento[] = [];
   form: FormGroup;
   nombreEmpleado: string = '';
+  nombreInput: string = '';
+  descripcionInput: string = '';
+  categoriaInput: string = '';
+  fechaInput: string = '';
 
   constructor(private empleadosService: EmpleadosService, private eventosService: EventosService, private fb: FormBuilder, private observablesService: ObservablesService) {
     this.form = this.fb.group({
@@ -45,6 +49,10 @@ export class FormularioComponent {
         this.nombreEmpleado = nombreGuardado;
         this.form.patchValue({ empleado: nombreGuardado });
       }
+    }
+
+    if(localStorage.getItem('formData')){
+      this.form.setValue(JSON.parse(localStorage.getItem('formData') ?? ""))
     }
   }
 
@@ -84,5 +92,9 @@ export class FormularioComponent {
     } else {
       alert('Por favor, rellene todos los campos');
     }
+  }
+
+  guardaFormulario(){
+    localStorage.setItem('formData', JSON.stringify(this.form.value))
   }
 }
